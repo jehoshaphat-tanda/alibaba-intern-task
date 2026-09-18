@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alibaba Ad Recreation</title>
+<style>
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    min-height: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #fff;
+    color: #111;
+  }
+
+  .ad {
+    width: min(1536px, 100%);
+    margin: 0 auto;
+    padding: 18px 38px 26px;
+    border: 1px solid #e5e5e5;
+    border-radius: 0 0 18px 18px;
+    overflow: hidden;
+  }
+
+  .top {
+    position: relative;
+    min-height: 205px;
+  }
+
+  .brand-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .brand-logo {
+    width: 82px;
+    height: 82px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: 8% 7%;
+  }
+
+  .brand {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .brand-name {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 30px;
+    line-height: 1;
+    font-weight: 700;
+  }
+
+  .verified {
+    width: 23px;
+    height: 23px;
+    display: inline-grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #1877f2;
+    color: white;
+    font-size: 15px;
+    font-weight: 900;
+  }
+
+  .sponsored {
+    color: #777;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .globe {
+    font-size: 18px;
+  }
+
+  .actions {
+    position: absolute;
+    right: 0;
+    top: 5px;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    color: #666;
+  }
+
+  .dots {
+    font-size: 27px;
+    letter-spacing: 2px;
+    line-height: 1;
+  }
+
+  .close {
+    font-size: 47px;
+    font-weight: 200;
+    line-height: .8;
+  }
+
+  .message {
+    margin-top: 26px;
+    font-size: 26px;
+    line-height: 1.22;
+    white-space: nowrap;
+  }
+
+  .message .link {
+    display: inline-block;
+    color: #1677d2;
+    font-weight: 600;
+    margin-top: 4px;
+  }
+
+  .heart {
+    color: #f04454;
+    margin-left: 5px;
+    font-size: 28px;
+  }
+
+  .products {
+    display: flex;
+    gap: 12px;
+    overflow: hidden;
+  }
+
+  .card {
+    flex: 0 0 48.9%;
+    min-width: 0;
+    border: 1px solid #dedede;
+    border-radius: 24px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,.05);
+  }
+
+  .card.partial {
+    flex-basis: 48.9%;
+  }
+
+  .photo {
+    width: 100%;
+    height: 650px;
+    display: block;
+    object-fit: cover;
+    object-position: top center;
+  }
+
+  .card:nth-child(1) .photo { object-position: center; }
+  .card:nth-child(2) .photo { object-position: center; }
+  .card:nth-child(3) .photo { object-position: left center; }
+
+  .card-body {
+    min-height: 164px;
+    padding: 25px 25px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  .title {
+    font-size: 27px;
+    line-height: 1.25;
+    font-weight: 700;
+    max-width: 68%;
+  }
+
+  .shop {
+    flex: 0 0 auto;
+    border: 0;
+    border-radius: 16px;
+    background: #edf0f4;
+    color: #171717;
+    padding: 17px 27px;
+    font-size: 24px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 900px) {
+    .ad { padding: 14px 20px 20px; }
+    .brand-logo { width: 62px; height: 62px; }
+    .brand-name { font-size: 23px; }
+    .message { font-size: 20px; }
+    .top { min-height: 160px; }
+    .card { flex-basis: 78%; }
+    .photo { height: 430px; }
+    .title { font-size: 21px; }
+    .shop { font-size: 19px; padding: 14px 20px; }
+  }
+
+  @media (max-width: 600px) {
+    .actions { gap: 16px; }
+    .close { font-size: 38px; }
+    .message {
+      white-space: normal;
+      font-size: 17px;
+      max-width: 88%;
+    }
+    .card { flex-basis: 88%; }
+    .photo { height: 330px; }
+    .card-body { min-height: 120px; padding: 16px; }
+    .title { font-size: 18px; }
+    .shop { font-size: 16px; padding: 12px 15px; }
+  }
+</style>
+</head>
+
+<body>
+  <main class="ad">
+    <section class="top">
+      <div class="brand-row">
+        <!-- Alibaba logo crop from the supplied reference -->
+        <img class="brand-logo" src="product1.png" alt="">
+        <div class="brand">
+          <div class="brand-name">
+            Alibaba.com
+            <span class="verified">✓</span>
+          </div>
+          <div class="sponsored">Ad <span class="globe">●</span></div>
+        </div>
+      </div>
+
+      <div class="actions">
+        <span class="dots">•••</span>
+        <span class="close">×</span>
+      </div>
+
+      <div class="message">
+        Choose from the world's largest supplier base and enjoy full order protection. Welcome to<br>
+        <span class="link">Alibaba.com</span> <span class="heart">💔</span>
+      </div>
+    </section>
+
+    <section class="products">
+      <article class="card">
+        <img class="photo" src="product1.png" alt="Smart Interactive Flat Panel Whiteboard">
+        <div class="card-body">
+          <div class="title">Smart Interactive Flat<br>Panel Whiteboard 22...</div>
+          <button class="shop">Shop now</button>
+        </div>
+      </article>
+
+      <article class="card">
+        <img class="photo" src="product2.png" alt="Sunmi D3 MINI">
+        <div class="card-body">
+          <div class="title">Sunmi D3 MINI 10.1<br>Inch 3+32 4G Network...</div>
+          <button class="shop">Shop now</button>
+        </div>
+      </article>
+
+      <article class="card partial">
+        <img class="photo" src="product3.png" alt="15.6 Desktop Streaming">
+        <div class="card-body">
+          <div class="title">15.6 Desktop<br>Streaming</div>
+          <button class="shop">Shop now</button>
+        </div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
